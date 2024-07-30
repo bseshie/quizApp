@@ -26,8 +26,9 @@ SECRET_KEY = 'django-insecure-lcu(!_@okunh!6zmtm$y@_-_agu)%24!oi29_s=1_pmzjfdpla
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://quizapp-frontend-3tlh.onrender.com','localhost' , 'https://quizapp-backend-2.onrender.com']
+# ALLOWED_HOSTS = ['https://quizapp-frontend-3tlh.onrender.com','localhost' , 'https://quizapp-backend-2.onrender.com', '127.0.0.1']
 
+ALLOWED_HOSTS = ['quizapp-frontend-3tlh.onrender.com', 'quizapp-backend-2.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
