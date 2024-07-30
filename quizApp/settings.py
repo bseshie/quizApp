@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lcu(!_@okunh!6zmtm$y@_-_agu)%24!oi29_s=1_pmzjfdpla'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://quizapp-frontend-3tlh.onrender.com']
 
 
 
