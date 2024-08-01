@@ -97,18 +97,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
     
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     'NAME': 'quiz_app', 
-    #     'CLIENT': {
-    #         'host': 'localhost',
-    #         'port': 27017,    # default is 27017
-    #     }
-    # }
 }
 
 
-AUTH_USER_MODEL = 'auth.User'  # or 'auth.User' if using Django's default User
+AUTH_USER_MODEL = 'auth.User'  
 
 
 

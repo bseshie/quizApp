@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-# from accounts.models import Score, Quiz, Account
 from rest_framework import serializers
 from accounts.models import Score,Quiz  
 
@@ -34,17 +33,17 @@ class QuizSerializer(serializers.ModelSerializer):
         model = Quiz
         fields = ['title']  
 
+
 class ScoreSerializer(serializers.ModelSerializer):
-    account = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())  
     quiz = QuizSerializer()  
 
     class Meta:
         model = Score
-        fields = ['account', 'quiz', 'score', 'date_taken']
+        fields = ['user', 'score', 'date_taken', 'quiz'] 
 
     def create(self, validated_data):
         quiz_data = validated_data.pop('quiz')
-        quiz_title = quiz_data.get('title')
-        quiz, created = Quiz.objects.get_or_create(title=quiz_title)
-        validated_data['quiz'] = quiz
-        return super().create(validated_data)
+        quiz, created = Quiz.objects.get_or_create(title=quiz_data['title'])
+        score = Score.objects.create(quiz=quiz, **validated_data)
+        return score
